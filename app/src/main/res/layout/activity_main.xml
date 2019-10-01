@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.mvvm_viewmodel_livedata_databinding.viewmodel.LoginViewModel" />
+
+
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+
+
+        <LinearLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_login_bottom_bg"
+            android:orientation="vertical"
+            android:paddingEnd="25dp"
+            android:paddingStart="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    app:boxBackgroundMode="filled"
+                    app:startIconDrawable="@drawable/ic_person"
+
+                    app:boxBackgroundColor="#00ce8f"
+                    android:id="@+id/txtEmailAddress"
+                    app:errorIconDrawable="@null"
+
+                    android:hint="@string/email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+
+
+
+                        android:text="@={viewmodel.EmailAddress}"
+
+
+                        android:textColor="#383838"
+                        android:textSize="20sp"
+
+
+                        android:paddingStart="5dp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="#00ce8f"
+                    android:id="@+id/txtPassword"
+                    app:startIconDrawable="@drawable/ic_lock"
+
+
+                    app:errorIconDrawable="@null"
+                    android:hint="@string/password">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                         android:paddingStart="5dp"
+                        android:text="@={viewmodel.password}"
+
+
+                        android:textColor="#383838"
+                        android:textSize="20sp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_continue"
+                app:backgroundTint="@color/colorAccent"
+                android:layout_width="152dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+
+               android:onClick="@{(v) -> viewmodel.onClick(v)}"
+
+                android:text="@string/login" />
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
